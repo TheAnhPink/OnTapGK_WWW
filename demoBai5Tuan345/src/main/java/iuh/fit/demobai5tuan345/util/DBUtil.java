@@ -1,0 +1,21 @@
+package iuh.fit.demobai5tuan345.util;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class DBUtil {
+    private static DataSource dataSource;
+
+    public DBUtil(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    public static Connection getConnection(){
+        try {
+            return dataSource.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
